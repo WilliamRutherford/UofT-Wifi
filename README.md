@@ -23,7 +23,7 @@ A CLI to find the congestion of access points on campus.
 
 *all*: outputs all buildings on campus, with one line per building
 
-
+###Arguments:
 
 [building]  [building code] [building name]
  
@@ -45,6 +45,8 @@ A CLI to find the congestion of access points on campus.
 16.  SR2  South Residence 2
 17.  JFH  Joan Foley Hall
 18.  NR   North Residences
+
+####Source:
 
 [Here is the site where all this data is grabbed from.](http://utsc.utoronto.ca/webapps/wirelessmap/cwn.php)
 
