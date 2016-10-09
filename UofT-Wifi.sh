@@ -15,16 +15,30 @@ build_to_num(){
 file_to_build(){
 
 	get_file
-
+	cd "$DIR"
 	cat  "$FILE" | grep -o '<CENTER>.*</CENTER>' | sed 's/<CENTER>//' | sed 's:</CENTER>::' | tr -d "\n"
+	cd ..
+}
 
+num_to_build(){
+
+	cd "$DIR"
+	BUILD=$(cat buildings.txt | grep "^$1:" | sed 's/.*://')
+	echo -n "$BUILD"
+	cd ..
 }
 
 file_to_AP(){
 
 	get_file	
-
+	cd "$DIR"
 	cat  "$FILE" | grep -o ':.*<p' | sed 's/.*: //' | sed 's/<P.*//' | tr -d "\n"
+	cd ..
+}
+
+num_to_AP(){
+
+	./UofT-Wifi.sh -c "$1"
 }
 
 get_file(){
@@ -38,7 +52,7 @@ get_file(){
 	cd "$DIR"
 
 	wget -qN  "http://utsc.utoronto.ca/webapps/wirelessmap/$FILE"
-
+	cd ..
 }
 
 #Values of $1:
@@ -73,7 +87,9 @@ elif [ "$#" -eq 1 ]; then
 		#returns all connections
 		for i in {1..18}
 		do
-			./UofT-Wifi.sh -o "$i"
+			num_to_build "$i"
+			echo -n "  "
+			./UofT-Wifi.sh -c "$i"
 		done
 	elif [ "$1" = "-h" ]; then
 		#returns help dialogue
@@ -91,10 +107,10 @@ elif [ "$#" -eq 2 ]; then
 		get_file
 		
 		file_to_build
-		echo "\n"
+		echo -e
 		echo -n 'Average number of connections per AP : '
 		file_to_AP
-		echo "\n"
+		echo -e
 	elif [ "$1" = "-o" ]; then
 		
 		if  [ $2 -lt 10 ]; then
@@ -105,6 +121,18 @@ elif [ "$#" -eq 2 ]; then
 		get_file
 		file_to_build 
 		echo -n "     connect/AP:  "
+		file_to_AP
+		echo -e
+	
+	elif [ "$1" = "-c" ]; then
+		#returns JUST the con/AP for the number $2
+		
+		if  [ $2 -lt 10 ]; then
+			FILE="$FILE""0"
+		fi
+		FILE="$FILE$2"
+
+		get_file
 		file_to_AP
 		echo -e
 
