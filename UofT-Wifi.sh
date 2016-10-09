@@ -73,7 +73,7 @@ elif [ "$#" -eq 1 ]; then
 		#returns all connections
 		for i in {1..18}
 		do
-			./UofT-Wifi.sh -c "$i"
+			./UofT-Wifi.sh -o "$i"
 		done
 	elif [ "$1" = "-h" ]; then
 		#returns help dialogue
