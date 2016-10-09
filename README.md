@@ -50,6 +50,10 @@ A CLI to find the congestion of access points on campus.
 
 [Here is the site where all this data is grabbed from.](http://utsc.utoronto.ca/webapps/wirelessmap/cwn.php)
 
+####Dependencies:
+
+Uses wget to grab pages. Uses grep and sed to parse text.
+
 #####Changing default directory:
 The script automatically keeps all scraped files in the "UTWI" folder, in the same folder the repository is kept. To change the name, change the `DIR` variable at the top of the script. *NOTE: This directory MUST stay in the repo directory. If you move it, it will just be created again. If you wish to do this, use a symlink.*
 
