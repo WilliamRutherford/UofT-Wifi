@@ -1,0 +1,28 @@
+<HTML>
+<meta http-equiv="refresh" content="300">
+ <head>
+  <title>
+  Wireless Map - University of Toronto  </TITLE>
+<script language="javascript">
+<!-- Begin
+function Popssplan(url,fenom,fenpar) 
+{
+ window.open(url,fenom,fenpar);
+}
+function OpenPopup(name) 
+{
+ var top=(screen.height-200)/2;
+ var left=(screen.width-200)/2;
+ propup = "toolbar=0,location=0,directories=0,status=0,menuBar=0,scrollbars=1,resizable=0,width=450,height=300,top="+top+",left="+left;
+ Popssplan("popUp.php?name="+name,"popUp",propup);
+}
+// End -->
+</script>
+</HEAD>
+<BODY BGCOLOR = #3399FF TEXT= #000033 style='overflow-x:auto,overflow-y:hidden' ><font size = 5 color = #FFFFFF><CENTER>Social Sciences Building</CENTER></font><P>Total Number of  Access Points : <BQ>32<P><b>Full wireless coverage</b><p><font size = 3 >Available SSID: UofT, eduroam<p><font size = 3 >Number of connections : <BQ>7<p>Average number of connections per AP : 0.22<P><P></font><p>
+<font size=-2>
+<i>
+University of Toronto / Information + Technology Services
+</i>
+</font>
+<hr>

@@ -6,11 +6,6 @@ DIR=UTWI
 #WARNING!!! DO NOT MODIFY FILE.
 FILE="popUp.php?name=00"
 
-build_to_num(){
-
-	echo "not implemented"	
-
-}
 
 file_to_build(){
 
@@ -24,6 +19,14 @@ num_to_build(){
 
 	cd "$DIR"
 	BUILD=$(cat buildings.txt | grep "^$1:" | sed 's/.*://')
+	echo -n "$BUILD"
+	cd ..
+}
+
+build_to_num(){
+
+	cd "$DIR"
+	BUILD=$(cat buildings.txt | grep "$1" | sed 's/:.*//')
 	echo -n "$BUILD"
 	cd ..
 }
@@ -138,6 +141,7 @@ elif [ "$#" -eq 2 ]; then
 
 	elif [ "$1" = "-b" ]; then
 		#the case where $b is a 2 or 3 digit code to represent a building.
-		echo "unimplemented"
+		NUM=$(build_to_num "$2")
+		./UofT-Wifi.sh -n "$NUM"
 	fi
 fi
