@@ -4,10 +4,19 @@ A CLI to find the congestion of access points on campus.
 ###Current Functionality:
 
 `UofT-Wifi.sh -n [building]`
+
 outputs the name and current number of connections/AP for [building].
 
 `UofT-Wifi.sh -o [building]`
+
 same as -n, except less verbose and contained on only one line.
+
+
+`UofT-Wifi.sh -a`
+
+*all*: outputs all buildings on campus, with one line per building
+
+*NOTE: -a currently works, but is ugly.*
 
 Where building is a number from 1-18. They each represent a building on the UTSC campus:
  
