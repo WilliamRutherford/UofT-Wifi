@@ -5,20 +5,23 @@ A CLI to find the congestion of access points on campus.
 
 `UofT-Wifi.sh -n [building]`
 
-outputs the name and current number of connections/AP for [building].
+*name*: outputs the name and current number of connections/AP for [building].
 
 `UofT-Wifi.sh -o [building]`
 
-same as -n, except less verbose and contained on only one line.
+*only*: same as -n, except less verbose and contained on only one line.
 
+`UofT-Wifi.sh -c [building]`
+
+*compact*: returns just the connections per access point (useful for scripts) 
 
 `UofT-Wifi.sh -a`
 
 *all*: outputs all buildings on campus, with one line per building
 
-*NOTE: -a currently works, but is ugly.*
 
-Where building is a number from 1-18. They each represent a building on the UTSC campus:
+
+Where [building] is a number from 1-18. They each represent a building on the UTSC campus:
  
 1.   AA Arts and Administration Building
 2.   AC Academic Resource Center
@@ -52,8 +55,3 @@ The script automatically keeps all scraped files in the "UTWI" folder, in the sa
 `UofT-Wifi.sh -b [building]`
 *by building*: lets you search buildings using the 2-3 symbol codes
 
-`UofT-Wifi.sh -a`
-*all*: outputs all buildings on campus, with one line per building
-
-`UofT-Wifi.sh -c [building]`
-*compact*: returns just the connections per access point (useful for scripts) 
