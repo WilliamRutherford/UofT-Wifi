@@ -3,7 +3,11 @@ A CLI to find the congestion of access points on campus.
 
 ###Current Functionality:
 
-`UofT-Wifi.sh [building]`
+`UofT-Wifi.sh -n [building]`
+outputs the name and current number of connections/AP for [building].
+
+`UofT-Wifi.sh -o [building]`
+same as -n, except less verbose and contained on only one line.
 
 Where building is a number from 1-18. They each represent a building on the UTSC campus:
  
@@ -27,6 +31,9 @@ Where building is a number from 1-18. They each represent a building on the UTSC
 18.  NR North Residences
 
 [Here is the site where all this data is grabbed from.](http://utsc.utoronto.ca/webapps/wirelessmap/cwn.php)
+
+#####Changing default directory:
+The script automatically keeps all scraped files in the "UTWI" folder, in the same folder the repository is kept. To change the name, change the `DIR` variable at the top of the script. *NOTE: This directory MUST stay in the repo directory. If you move it, it will just be created again. If you wish to do this, use a symlink.*
 
 #####Features to Implement:
 
