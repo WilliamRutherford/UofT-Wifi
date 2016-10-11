@@ -1,6 +1,7 @@
 #!/bin/bash
 #DIR represents the directory where all request files are saved to.
-DIR=UTWI
+DIR=~/bin/UofT-Wifi/
+NAME=UTWI
 
 
 #WARNING!!! DO NOT MODIFY FILE.
@@ -10,14 +11,14 @@ FILE="popUp.php?name=00"
 file_to_build(){
 
 	get_file
-	cd "$DIR"
+	cd "$DIR$NAME"
 	cat  "$FILE" | grep -o '<CENTER>.*</CENTER>' | sed 's/<CENTER>//' | sed 's:</CENTER>::' | tr -d "\n"
 	cd ..
 }
 
 num_to_build(){
 
-	cd "$DIR"
+	cd "$DIR$NAME"
 	BUILD=$(cat buildings.txt | grep "^$1:" | sed 's/.*://')
 	echo -n "$BUILD"
 	cd ..
@@ -25,7 +26,7 @@ num_to_build(){
 
 build_to_num(){
 
-	cd "$DIR"
+	cd "$DIR$NAME"
 	BUILD=$(cat buildings.txt | grep "$1" | sed 's/:.*//')
 	echo -n "$BUILD"
 	cd ..
@@ -34,25 +35,25 @@ build_to_num(){
 file_to_AP(){
 
 	get_file	
-	cd "$DIR"
+	cd "$DIR$NAME"
 	cat  "$FILE" | grep -o ':.*<p' | sed 's/.*: //' | sed 's/<P.*//' | tr -d "\n"
 	cd ..
 }
 
 num_to_AP(){
 
-	./UofT-Wifi.sh -c "$1"
+	/UofT-Wifi.sh -c "$1"
 }
 
 get_file(){
 
+	cd "$DIR"
+	if [ ! -d "$NAME" ]; then
 
-	if [ ! -d "$DIR" ]; then
-
-		mkdir "$DIR"
+		mkdir "$NAME"
 	fi
 
-	cd "$DIR"
+	cd "$DIR$NAME"
 
 	wget -qN  "http://utsc.utoronto.ca/webapps/wirelessmap/$FILE"
 	cd ..
@@ -85,14 +86,29 @@ if [ "$#" -eq 0 ]; then
 elif [ "$#" -eq 1 ]; then
 	if [ "$1" = "-f" ]; then
 		#returns fastest connection
-		echo "unimplemented"
+		FAST=1 #stores the number of the fastest connection
+		CURR=1 #stores the current connection to check
+		FASTSPEED=100
+		CURRSPEED=100
+		for i in {2..18}
+		do
+			CURR="$i"
+			CURRSPEED=$(num_to_AP "$CURR")
+			FASTSPEED=$(num_to_AP "$FAST")
+			if [ "$CURRSPEED" -lt "$FASTSPEED" ]; then
+				FAST="$CURR"
+			fi 
+		done	
+		num_to_build "$FAST"
+		num_to_AP "$FAST"	
+
 	elif [ "$1" = "-a" ]; then
 		#returns all connections
 		for i in {1..18}
 		do
 			num_to_build "$i"
 			echo -n "  "
-			./UofT-Wifi.sh -c "$i"
+			"$DIR"UofT-Wifi.sh -c "$i"
 		done
 	elif [ "$1" = "-h" ]; then
 		#returns help dialogue
