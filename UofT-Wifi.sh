@@ -1,7 +1,7 @@
-#!/bin/bash
+#/bin/bash
 #DIR represents the directory where all request files are saved to.
-DIR=~/bin/UofT-Wifi/
-NAME=UTWI
+DIR="$(cat .UofT-Wifi.conf | grep "DIR" | sed 's/DIR=//')/"
+NAME="$(cat .UofT-Wifi.conf | grep "NAME" | sed 's/NAME=//')/"
 
 
 #WARNING!!! DO NOT MODIFY FILE.
@@ -110,6 +110,7 @@ elif [ "$#" -eq 1 ]; then
 			echo -n "  "
 			"$DIR"UofT-Wifi.sh -c "$i"
 		done
+
 	elif [ "$1" = "-h" ]; then
 		#returns help dialogue
 		echo "unimplemented"
@@ -153,7 +154,7 @@ elif [ "$#" -eq 2 ]; then
 
 		get_file
 		file_to_AP
-		echo -e
+		echo -e	
 
 	elif [ "$1" = "-b" ]; then
 		#the case where $b is a 2 or 3 digit code to represent a building.
