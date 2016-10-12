@@ -3,7 +3,7 @@ A CLI to find the congestion of access points on campus.
 
 ####Installation
 run this command to install UofT-Wifi:
-` git clone https://github.com/WilliamRutherford/UofT-Wifi.git && ./UofT-Wifi/install.sh`
+` git clone https://github.com/WilliamRutherford/UofT-Wifi.git && chmod +x install.sh && ./UofT-Wifi/install.sh`
 
 ###Current Functionality:
 
