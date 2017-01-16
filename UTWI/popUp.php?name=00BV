@@ -19,7 +19,7 @@ function OpenPopup(name)
 // End -->
 </script>
 </HEAD>
-<BODY BGCOLOR = #3399FF TEXT= #000033 style='overflow-x:auto,overflow-y:hidden' ><font size = 5 color = #FFFFFF><CENTER>Student Residence Centre</CENTER></font><P>Total Number of  Access Points : <BQ>2<P><b>Full wireless coverage</b><p><font size = 3 >Available SSID: UofT, eduroam<p><font size = 3 >Number of connections : <BQ>39<p>Average number of connections per AP : 19.5<P><P></font><p>
+<BODY BGCOLOR = #3399FF TEXT= #000033 style='overflow-x:auto,overflow-y:hidden' ><font size = 5 color = #FFFFFF><CENTER></CENTER></font><P>Total Number of  Access Points : <BQ><P>Wireless coverage near: <BQ><select name="location"></select><P><font size = 3 >Number of connections : <BQ><P><P></font><p>
 <font size=-2>
 <i>
 University of Toronto / Information + Technology Services
