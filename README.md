@@ -33,21 +33,21 @@ run this command to install UofT-Wifi:
  
 1.   AA   Arts and Administration Building
 2.   AC   Academic Resource Center
-3.   BW   Bladen Wing
+3.   BV   Bladen Wing
 4.   HW   Humanities Wing
 5.   MW   Social Sciences Building
 6.   SL   Student Center
 7.   SY   Science Reseach Building
 8.   SW   Science Wing
-9.   SRC  Student Residence Center
+9.   VL  Student Residence Center
 10.  IC   Instructional Center
 11.  CCC  Child Care Center
-12.  RC   Athletics Center
+12.  HL   Highland Hall
 13.  PO   Portables
 14.  MLH  Miller Lash House
 15.  SR1  South Residence 1
 16.  SR2  South Residence 2
-17.  JFH  Joan Foley Hall
+17.  FL  Joan Foley Hall
 18.  NR   North Residences
 
 ####Source:
